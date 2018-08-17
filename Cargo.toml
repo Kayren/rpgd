@@ -1,0 +1,6 @@
+[package]
+name = "rpgd"
+version = "0.1.0"
+authors = ["Gasser Alain <g29.alain@gmail.com>"]
+
+[dependencies]
