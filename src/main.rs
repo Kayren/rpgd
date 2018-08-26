@@ -28,6 +28,7 @@ use ws::{listen, CloseCode, Handler, Handshake, Message, Result, Sender};
 enum WsMessageIn {
     SetNick { nick: String },
     RollDice { dices: Vec<wardice::Dice> },
+    NewChatMessage { nick: String, message: String },
 }
 
 #[derive(Serialize, Debug)]
@@ -42,6 +43,10 @@ enum WsMessageOut {
     RollDiceResult {
         nick: String,
         results: Vec<(wardice::Dice, &'static wardice::Face)>,
+    },
+    OnChatMessage {
+        nick: String,
+        message: String,
     },
     Error {
         message: String,
@@ -210,6 +215,10 @@ fn parse_message_in(client: &mut Client, message: WsMessageIn) -> Send {
                 nick: client.nick.clone(),
                 results: r,
             };
+            Send::ToAll(build_message(out))
+        }
+        WsMessageIn::NewChatMessage { nick, message } => {
+            let out = WsMessageOut::OnChatMessage { nick: nick, message: message };
             Send::ToAll(build_message(out))
         }
     }
