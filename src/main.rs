@@ -40,7 +40,7 @@ enum WsMessageOut {
     OnLeaveClient {
         nick: String,
     },
-    RollDiceResult {
+    OnRollDice {
         nick: String,
         results: Vec<(wardice::Dice, &'static wardice::Face)>,
     },
@@ -211,7 +211,7 @@ fn parse_message_in(client: &mut Client, message: WsMessageIn) -> Send {
         }
         WsMessageIn::RollDice { dices } => {
             let r = wardice::roll_dices(dices);
-            let out = WsMessageOut::RollDiceResult {
+            let out = WsMessageOut::OnRollDice {
                 nick: client.nick.clone(),
                 results: r,
             };
