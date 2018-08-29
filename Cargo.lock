@@ -212,6 +212,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "rpgd"
 version = "0.1.0"
 dependencies = [
+ "log 0.4.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 1.0.72 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_derive 1.0.72 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_json 1.0.26 (registry+https://github.com/rust-lang/crates.io-index)",
