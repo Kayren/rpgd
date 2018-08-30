@@ -1,8 +1,4 @@
-#[macro_use]
-extern crate serde;
-extern crate serde_derive;
-extern crate serde_json;
-extern crate wardice;
+extern crate rpgd;
 extern crate ws;
 
 use std::cell::RefCell;
@@ -10,10 +6,8 @@ use std::collections::HashMap;
 use std::rc::Rc;
 use ws::listen;
 
-mod server;
-
-use server::client::Client;
-use server::connection::Connection;
+use rpgd::server::client::Client;
+use rpgd::server::connection::Connection;
 
 fn main() {
     println!("Hello, rpgd!");

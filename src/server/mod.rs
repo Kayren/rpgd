@@ -1,3 +1,5 @@
+//! Server module
+
 pub mod client;
 pub mod connection;
 pub mod message;
