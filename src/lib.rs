@@ -10,4 +10,5 @@ extern crate serde_json;
 extern crate wardice;
 extern crate ws;
 
+pub mod config;
 pub mod server;
