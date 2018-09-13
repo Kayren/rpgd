@@ -9,4 +9,4 @@ log = "0.4.4"
 serde = "1.0.71"
 serde_derive = "1.0.71"
 serde_json = "1.0"
-wardice = { path = "../wardice"}
+wardice = { git = "https://github.com/Kayren/wardice.git"}
