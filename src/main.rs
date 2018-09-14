@@ -1,5 +1,7 @@
 extern crate dotenv;
+extern crate log;
 extern crate rpgd;
+extern crate simple_logger;
 extern crate ws;
 
 use std::cell::RefCell;
@@ -12,10 +14,10 @@ use rpgd::server::client::Client;
 use rpgd::server::connection::Connection;
 
 fn main() {
-    println!("Hello, rpgd!");
-
     dotenv::dotenv().expect("No .env file found");
     let config = config::init();
+
+    simple_logger::init_with_level(log::Level::Info).unwrap();
 
     let registry = Rc::new(RefCell::new(HashMap::new()));
 
